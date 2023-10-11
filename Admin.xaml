@@ -1,0 +1,115 @@
+﻿<Window x:Class="FarmersMarket.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FarmersMarket"
+        mc:Ignorable="d"
+        Title="Admin" Height="600" Width="900">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="325*"/>
+            <RowDefinition Height="82*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="393*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="397*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" Content="Farmer's Market"
+       FontSize="25" FontWeight="Bold" VerticalContentAlignment="Center" FontFamily="Algerian"/>
+        <Canvas Grid.Column="1" Margin="0,87,0,0" Grid.Row="1" Grid.RowSpan="2">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/Images/fruits.jpg"/>
+            </Canvas.Background>
+
+
+            <Label Content="Product" Canvas.Left="30" Canvas.Top="30">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="LightGray"/>
+                        <GradientStop Color="LightGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <TextBox x:Name="product" Canvas.Right="30" TextWrapping="Wrap" Canvas.Top="38" Width="120" HorizontalAlignment="Center" Canvas.Left="243" VerticalAlignment="Top"/>
+            <Label Content="Product ID" Canvas.Left="30" Canvas.Top="69" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="LightGray"/>
+                        <GradientStop Color="LightGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+
+            <TextBox x:Name="productID" Canvas.Right="30" TextWrapping="Wrap" Canvas.Top="77" Width="120" HorizontalAlignment="Center" Canvas.Left="243" VerticalAlignment="Top"/>
+            <Label Content="Amount (kg)" Canvas.Left="30" Canvas.Top="110" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="LightGray"/>
+                        <GradientStop Color="LightGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <TextBox x:Name="amount" Canvas.Right="30" TextWrapping="Wrap" Canvas.Top="118" Width="120" HorizontalAlignment="Center" Canvas.Left="243" VerticalAlignment="Top"/>
+            <Label Content="Price (CAD) / kg" Canvas.Left="30" Canvas.Top="149" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="LightGray"/>
+                        <GradientStop Color="LightGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <TextBox x:Name="price" Canvas.Right="30" TextWrapping="Wrap" Canvas.Top="157" Width="120" Canvas.Left="243" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label Content="ID : " Canvas.Left="30" Canvas.Top="230" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="LightGray"/>
+                        <GradientStop Color="LightGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <TextBox x:Name="dataID" Canvas.Right="30" TextWrapping="Wrap" Canvas.Top="238" Width="120" Canvas.Left="243" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        </Canvas>
+        <Label Grid.Column="3" Content="Search By ID" HorizontalAlignment="Left" Margin="55,21,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="144"/>
+        <TextBox x:Name="search" Grid.Column="3" HorizontalAlignment="Left" Margin="229,26,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="22"/>
+        <StackPanel Grid.Column="3" Grid.Row="1" Margin="20,87,20,29" Grid.RowSpan="2">
+            <Label Content="Admin CRUD Functionaliities" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" FontFamily="Arial" Width="288"/>
+            <Button FontSize="16" x:Name="select" Content="Search" Height="40" Background="White" Click="select_Click"></Button>
+            <Button FontSize="16" x:Name="insert" Content="Insert" Height="40" Click="insert_Click"></Button>
+            <Button FontSize="16" x:Name="update" Content="Update" Height="40" Click="update_Click"></Button>
+            <Button FontSize="16" x:Name="delete" Content="Delete" Height="40" Background="White" Click="delete_Click"></Button>
+            <DataGrid x:Name="dataGrid" Height="130" SelectionChanged="dataGrid_SelectionChanged" AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"/>
+
+        </StackPanel>
+
+        <Button x:Name="saleWindow" Grid.Column="1" Content="Sell" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" BorderBrush="#FF45DE26" FontSize="16" FontWeight="Bold" Width="150" Click="saleWindow_Click" Height="26">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Green"/>
+                    <GradientStop Color="LightGreen" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+        <Label Grid.Column="3" Content="Delete  (Only ID required)&#xA;Insert (All fields required except ID) &#xA;Update (All Fields Required)&#xD;&#xA;Search (Enter ID in Search Box)" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="315" Height="90"/>
+        <Image Source="/Images/arrowdown.png" Grid.Column="2" Margin="5,309,0,-14" Grid.Row="2" RenderTransformOrigin="0.406,0.6" HorizontalAlignment="Left" Width="66" Grid.RowSpan="3" Grid.ColumnSpan="2">
+
+        </Image>
+
+
+    </Grid>
+</Window>

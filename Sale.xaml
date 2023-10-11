@@ -1,0 +1,58 @@
+﻿<Window x:Class="FarmersMarket.Sale"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FarmersMarket"
+        mc:Ignorable="d"
+        Title="Sale" Height="550" Width="900">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFEA7B7B" Offset="0"/>
+                <GradientStop Color="#FF5E9CE6" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Canvas Grid.Column="1" Margin="0,87,0,0" Grid.Row="1" Grid.RowSpan="2">
+            <Grid HorizontalAlignment="Left" Canvas.Left="160" VerticalAlignment="Center">
+                <Grid.Background>
+                    <ImageBrush/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="87*"/>
+                    <RowDefinition Height="320*"/>
+                    <RowDefinition Height="87*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="213*"/>
+                    <ColumnDefinition Width="217*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Left" Content="Enter Information"
+       FontSize="25" FontFamily="Arial"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" Margin="148,0,190,0"/>
+
+                <Label Grid.Column="1" FontSize="14" Content="Customer Name" HorizontalAlignment="Right" Margin="0,30,30,0" Grid.Row="2" VerticalAlignment="Top"/>
+                <TextBox x:Name="custName" Grid.Column="2" HorizontalAlignment="Left" Margin="30,35,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+
+                <Label Grid.Column="1" FontSize="14" Content="Product ID" HorizontalAlignment="Right" Margin="0,69,30,0" Grid.Row="2" VerticalAlignment="Top"/>
+                <TextBox x:Name="productId" Grid.Column="2" HorizontalAlignment="Left" Margin="30,74,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+
+                <Label Grid.Column="1" FontSize="14" Content="Amount (kg)" HorizontalAlignment="Right" Margin="0,108,30,0" Grid.Row="2" VerticalAlignment="Top"/>
+                <TextBox x:Name="amountKg" Grid.Column="2" HorizontalAlignment="Left" Margin="30,113,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="total" Grid.Column="2" HorizontalAlignment="Left" Margin="30,198,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+                <Button x:Name="calculateTotal" Grid.Column="1" Content="Calculate Total" HorizontalAlignment="Right" Margin="0,198,30,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Click="calculateTotal_Click" Height="33"  >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF78787"/>
+                            <GradientStop Color="#FFF78787" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="confirmSale" Grid.Column="1" Content="Confirm Sale" HorizontalAlignment="Right" Margin="0,265,30,0" Grid.Row="2" VerticalAlignment="Top" IsEnabled="False" Click="confirmSale_Click" Height="33" Width="100"/>
+            </Grid>
+        </Canvas>
+    </Grid>
+</Window>
