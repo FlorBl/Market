@@ -31,9 +31,6 @@ namespace FarmersMarket
 
         private void establishConnect()
         {
-            // need to install postgresql adapter/library from packageManager
-            // NpgSQL
-            // create instances of connector and command adapter
 
             try
             {
@@ -47,7 +44,6 @@ namespace FarmersMarket
 
         private string get_ConnectionString()
         {
-            // pass 5 values: host, port, dbName, userName, password
 
             string host = "Host=localhost;";
             string port = "Port=5432;";

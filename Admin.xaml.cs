@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace FarmersMarket
 {
-    /// <summary>
-    /// Interaction logic for Admin.xaml
-    /// </summary>
+
     public partial class Admin : Window
     {
         public Admin()
@@ -86,7 +84,7 @@ namespace FarmersMarket
 
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
-                da.Fill(dt);  // fill the DataTable first
+                da.Fill(dt); 
 
                 if (dt != null && dt.Columns.Contains("produce_id"))
                 {
@@ -95,17 +93,17 @@ namespace FarmersMarket
 
                 if (dt != null && dt.Columns.Contains("product_id"))
                 {
-                    dt.Columns["product_id"].ColumnName = "Product ID";  // rename the column after filling the DataTable
+                    dt.Columns["product_id"].ColumnName = "Product ID";  
                 }
 
                 if (dt != null && dt.Columns.Contains("name"))
                 {
-                    dt.Columns["name"].ColumnName = "Name";  // rename the column after filling the DataTable
+                    dt.Columns["name"].ColumnName = "Name";  
                 }
 
 
 
-                // send dataTable information to datagrid itemsource
+ 
                 dataGrid.ItemsSource = dt.AsDataView();
 
                 DataContext = da;
@@ -118,9 +116,7 @@ namespace FarmersMarket
         }
         private void establishConnect()
         {
-            // need to install postgresql adapter/library from packageManager
-            // NpgSQL
-            // create instances of connector and command adapter
+
 
             try
             {
